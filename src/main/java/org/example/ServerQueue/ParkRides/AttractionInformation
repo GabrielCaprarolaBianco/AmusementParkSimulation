@@ -1,0 +1,7 @@
+Format : name, popularity, rideCapacity, LengthOfRide, #OfRides
+5 : total number of attractions
+Twister,0.35,16,3.5,2
+High Heater,0.24,20,4.5,3
+Long Way Home,0.40,14,5,3
+Wet Log Ride,0.15,8,3,9
+Regular Ride,0.25,18,4,2
