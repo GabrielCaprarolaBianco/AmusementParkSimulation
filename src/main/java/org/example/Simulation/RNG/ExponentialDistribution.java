@@ -1,4 +1,4 @@
-package org.example.Simulators.RNG;
+package org.example.Simulation.RNG;
 
 import java.util.Random;
 

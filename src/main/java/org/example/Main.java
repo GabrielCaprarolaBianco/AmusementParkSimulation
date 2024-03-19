@@ -1,7 +1,10 @@
 package org.example;
 
+import org.example.Simulation.TimeSimulation;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        TimeSimulation TS = new TimeSimulation();
+        TS.runSimulation(1000000);
     }
 }

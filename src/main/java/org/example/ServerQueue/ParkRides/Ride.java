@@ -19,15 +19,19 @@ public class Ride {
         this.rideName = rideName;
     }
 
-    public void rideAction(double currentTime, WanderingQueue queueReference, String rideName, Queue attractionQueue){
+    public void action(double currentTime, WanderingQueue queueReference, Queue attractionQueue){
         while(currentTime >= nextEndOfService){
-            offLoad(queueReference, rideName);
-            onLoad(attractionQueue,nextEndOfService,rideName);
-            setNextEndOfService(nextEndOfService);
+            offLoad(queueReference);
+            if(!attractionQueue.isQueueEmpty()){
+            onLoad(attractionQueue,rideName);
+            setNextEndOfService();
+            }
+            else
+                break;
         }
     }
 
-    protected void offLoad(WanderingQueue queueReference, String rideName){
+    protected void offLoad(WanderingQueue queueReference){
         int arrayIndex = 0;
         while(riders[arrayIndex] != null && arrayIndex < rideCapacity){
             queueReference.enqueue(riders[arrayIndex]);
@@ -35,17 +39,18 @@ public class Ride {
         }
         riders = new Job[rideCapacity]; //used to clean out all stale Job references from riders array
     }
-    protected void onLoad(Queue attractionQueue, double currentTime, String rideName){
+    protected void onLoad(Queue attractionQueue, String rideName){
         int ridersIndex = 0;
         while(riders[rideCapacity-1] == null && !attractionQueue.isQueueEmpty()){
             riders[ridersIndex] = attractionQueue.dequeue();
-            riders[ridersIndex].completeTimeStamp(currentTime,rideName);
+            riders[ridersIndex].completeTimeStamp(nextEndOfService,rideName);
+            riders[ridersIndex].reduceNumberOfRides();
         }
     }
 
-    private void setNextEndOfService(double currentTime){
+    private void setNextEndOfService(){
         nextEndOfService = nextEndOfService + rideLength;
     }
-    private double getNextEndOfService(){return nextEndOfService;}
-
+    public double getRideCapacity(){return rideCapacity;}
+    public double getRideLength(){return rideLength;}
 }
