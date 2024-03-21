@@ -1,7 +1,9 @@
 Format : name, popularity, rideCapacity, LengthOfRide, #OfRides
-5
-Twister,0.35,16,3.5,2
+7
+Twister,0.35,16,3.5,3
 High Heater,0.24,20,4.5,3
-Long Way Home,0.40,14,5,3
-Wet Log Ride,0.15,8,3,9
-Regular Ride,0.25,18,4,2
+Long Way Home,0.40,14,5,2
+Wet Log Ride,0.15,8,3,5
+Regular Ride,0.25,18,4,4
+test drive,0.15,4,3,16
+wild side,0.4,16,3,2

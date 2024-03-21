@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7450711c-ecd7-4ab4-9ac8-9b9083d27926" name="Changes" comment="3/18/2024 3:40">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ArrivalProcess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/TimeSimulation.java" afterDir="false" />
+    <list default="true" id="7450711c-ecd7-4ab4-9ac8-9b9083d27926" name="Changes" comment="3/19/2024 1:11am">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/Statistics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ClockSystem/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ClockSystem/Clock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ArrivalProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ArrivalProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ParkRides/Attraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ParkRides/Attraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ParkRides/AttractionInformation" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/AttractionInformation.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ParkRides/Ride.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/ParkRides/Ride.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/QueueCore/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/QueueCore/Job.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/WanderingQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerQueue/WanderingQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation/RNG/ExponentialDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/RNG/ExponentialDistribution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation/RNG/NormalDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/RNG/NormalDistribution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation/RNG/RandomDistribution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/RNG/RandomDistribution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation/AttractionInformation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/AttractionInformation.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Simulation/TimeSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Simulation/TimeSimulation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +46,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/gcapr/intelliJ Files/Portfolio/DataBaseProject/HospitalDataBase"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gcapr/intelliJ Files/Portfolio/DataBaseProject/HospitalDataBase&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gcapr\intelliJ Files\CMIS202\AmusementParkSimulation\src\main\java\org\example\Simulation" />
@@ -97,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710790779909</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="3/19/2024 1:11am">
+      <created>1710825115772</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710825115772</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,22 +118,28 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="3/18/2024 3:40" />
-    <option name="LAST_COMMIT_MESSAGE" value="3/18/2024 3:40" />
+    <MESSAGE value="3/19/2024 1:11am" />
+    <option name="LAST_COMMIT_MESSAGE" value="3/19/2024 1:11am" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Simulation/TimeSimulation.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Simulation/Statistics.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/ServerQueue/WanderingQueue.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Simulation/TimeSimulation.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.example.ServerQueue.QueueCore.Job" memberName="jobID" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

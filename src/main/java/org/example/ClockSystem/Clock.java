@@ -7,11 +7,9 @@ public class Clock {
         globalClock = new ClockObject(tickValue);
     }
 
-    //use to advance time forward
     public void tick(){ //this method should be used to advance time forward
         globalClock.tick();
     }
-    //only use to move time backwards
     public void setGlobalClock(double newTime){ //this method should only be used to rewind time, not advance it
         globalClock.setCurrentTime(newTime);
     }
@@ -29,7 +27,7 @@ public class Clock {
             this.tickValue = tickValue;
         }
 
-        public void tick(){
+        protected void tick(){
             currentTime += tickValue;
         }
         public void setCurrentTime(double newTime){

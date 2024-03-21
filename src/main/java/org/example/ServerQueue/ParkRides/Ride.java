@@ -18,12 +18,13 @@ public class Ride {
         nextEndOfService = currentTime;
         this.rideName = rideName;
     }
-
+    //main method that drives the ride object
+    //checks to see if the current time has reached or exceeded the required time for an action to take place
     public void action(double currentTime, WanderingQueue queueReference, Queue attractionQueue){
         while(currentTime >= nextEndOfService){
             offLoad(queueReference);
             if(!attractionQueue.isQueueEmpty()){
-            onLoad(attractionQueue,rideName);
+            onLoad(attractionQueue,rideName, currentTime);
             setNextEndOfService();
             }
             else
@@ -31,20 +32,26 @@ public class Ride {
         }
     }
 
-    protected void offLoad(WanderingQueue queueReference){
+    protected void offLoad(WanderingQueue queueReference){ //pushes all jobs from ride into wandering queue
         int arrayIndex = 0;
-        while(riders[arrayIndex] != null && arrayIndex < rideCapacity){
+        while(arrayIndex < rideCapacity && riders[arrayIndex] != null){
             queueReference.enqueue(riders[arrayIndex]);
             arrayIndex++;
         }
         riders = new Job[rideCapacity]; //used to clean out all stale Job references from riders array
     }
-    protected void onLoad(Queue attractionQueue, String rideName){
+    protected void onLoad(Queue attractionQueue, String rideName, double currentTime){ //pulls job from attraction queue for service
         int ridersIndex = 0;
         while(riders[rideCapacity-1] == null && !attractionQueue.isQueueEmpty()){
             riders[ridersIndex] = attractionQueue.dequeue();
-            riders[ridersIndex].completeTimeStamp(nextEndOfService,rideName);
+            if(currentTime > nextEndOfService){
+                riders[ridersIndex].completeTimeStamp(currentTime,rideName);
+            }
+            else {
+                riders[ridersIndex].completeTimeStamp(nextEndOfService, rideName);
+            }
             riders[ridersIndex].reduceNumberOfRides();
+            ridersIndex++;
         }
     }
 

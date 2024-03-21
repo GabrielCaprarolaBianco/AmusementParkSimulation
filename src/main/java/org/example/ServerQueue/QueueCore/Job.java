@@ -55,6 +55,9 @@ public class Job {
         return output.getRideName();
     }
 
+    //this method takes a reference to each attraction and rolls a random number between 0-1
+    //It then compares the rolled to the popularity value for each attraction
+    //If the rolled number is higher than the popularity value the job wants to visit that attraction, if not the job will not visit it
     private RideAffinity[] setRideAffinities(AttractionValues[] rides){
         RideAffinity[] outputArray = new RideAffinity[rides.length];
         int arrayIndex = 0;
@@ -101,7 +104,9 @@ public class Job {
         }
         return tempArray;
     }
-
+    //method used to track where a job has already visited and records it
+    //This method is used to ensure jobs do not revisit rides after their first ride
+    //might be changed/expanded to allow for limited revisit by adding a new attribute to the jobs, something like rideDiversity
     private RideAffinity[] remainingDestinations(){
         RideAffinity[] output = new RideAffinity[rideAffinities.length];
         int arrayIndex = 0;
@@ -129,7 +134,8 @@ public class Job {
         }
         completedRides[arrayIndex] = input;
     }
-    private int setNumberOfRides(){
+
+    private int setNumberOfRides(){ //sets the total number of rides the job wants to visit before leaving the park
         int output = random.nextInt(2,4);
         if(output > rideAffinities.length){
             output = rideAffinities.length;
@@ -144,7 +150,7 @@ public class Job {
                 return attraction.waitTimeCalculation();
             }
         }
-        return 201.11;
+        return 90;
     }
     public void reduceNumberOfRides(){
         numberOfRides--;
@@ -157,7 +163,7 @@ public class Job {
         return newArray;
     }
 
-    private RideAffinity[] arrayTrim(RideAffinity[] inputArray){
+    private RideAffinity[] arrayTrim(RideAffinity[] inputArray){ //trims null values off of arrays
         int index = 0;
         while(index < inputArray.length && inputArray[index] != null){
             index++;

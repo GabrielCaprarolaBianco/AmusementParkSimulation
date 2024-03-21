@@ -9,7 +9,7 @@ public class Attraction {
     protected Queue mainQueue;
     private Ride[] rides;
     private int lineSize;
-    private WanderingQueue wanderingQueueReference; //has to be made later due to issues with wandering queue needing attractions to be initalized too
+    private WanderingQueue wanderingQueueReference; //has to be made later due to issues with wandering queue needing attractions to be initialized too
     public Attraction(String rideName, double popularity, int rideCapacity, double lengthOfRide, int numberOfRides){
         namePopularity = new AttractionValues(rideName,popularity);
         mainQueue = new Queue();
@@ -25,7 +25,7 @@ public class Attraction {
         }
         return outputArray;
     }
-
+    //method that drives the class and its functions
     public void action(double currentTime){
         for(Ride ride : rides){
             ride.action(currentTime, wanderingQueueReference, mainQueue);

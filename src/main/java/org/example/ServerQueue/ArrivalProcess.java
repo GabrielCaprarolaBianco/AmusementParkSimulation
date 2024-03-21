@@ -6,7 +6,8 @@ import org.example.ServerQueue.QueueCore.Job;
 import org.example.Simulation.RNG.NormalDistribution;
 
 public class ArrivalProcess {
-    //15-20 people as mean amount
+    //this arrival process follows a normal distribution
+    //If it used an exponential process the lambda would be astronomically high
     private NormalDistribution arrivalDistribution;
     private AttractionValues[] attractionValues;
     public ArrivalProcess(int mean, double standardDeviation, AttractionValues[] attractionValues){

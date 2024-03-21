@@ -9,23 +9,24 @@ public class WanderingQueue{
     private Queue processingQueue;
     private Queue completedQueueReference;
     private ArrivalProcess arrivalProcess;
-    //private AttractionValues[] attractionValues;
     private Attraction[] attractionReferences;
 
     public WanderingQueue(AttractionValues[] attractionValues,Attraction[] attractionReferences, Queue completedQueueReference){
         processingQueue = new Queue();
-        arrivalProcess = new ArrivalProcess(17, 4, attractionValues);
-        //this.attractionValues = attractionValues;
+        arrivalProcess = new ArrivalProcess(25, 4, attractionValues);
         this.attractionReferences = attractionReferences;
         this.completedQueueReference = completedQueueReference;
     }
-
-    public void action(double currentTime){
-        //order of operations will be arrivals first, then moving everything around
+    //the actions for this queue are split in two to the sequencing can be smoother
+    public void actionArrivals(){
         arrivals();
+    }
+    public void actionJobMovement(double currentTime){
         jobMovement(currentTime);
     }
 
+    //this method moves the queued jobs to their desired attractions
+    //their path is based of their response to the pathing decision equations
     private void jobMovement(double currentTime){
         while(!processingQueue.isQueueEmpty()){
             Job job = processingQueue.dequeue();

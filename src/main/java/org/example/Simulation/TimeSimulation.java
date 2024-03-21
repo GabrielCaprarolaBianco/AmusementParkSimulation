@@ -5,7 +5,6 @@ import org.example.ServerQueue.ParkRides.Attraction;
 import org.example.ServerQueue.ParkRides.AttractionValues;
 import org.example.ServerQueue.QueueCore.Queue;
 import org.example.ServerQueue.WanderingQueue;
-import org.w3c.dom.Attr;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,6 +16,7 @@ public class TimeSimulation {
     private Attraction[] attractions;
     private Queue completedQueue;
     private AttractionValues[] attractionValues;
+    private Statistics stats =  new Statistics();
 
     public TimeSimulation(){
         globalClock = new Clock(1);
@@ -26,15 +26,17 @@ public class TimeSimulation {
         wanderingQueue = new WanderingQueue(attractionValues, attractions, completedQueue);
         attractionFinalization(attractions,wanderingQueue);
     }
-
+    //method used for looping the simulation
     public void runSimulation(double timeToRun){
         while(globalClock.whatTimeIsIt() < timeToRun){
+            wanderingQueue.actionArrivals();
             for(Attraction attraction : attractions){
                 attraction.action(globalClock.whatTimeIsIt());
             }
-            wanderingQueue.action(globalClock.whatTimeIsIt());
+            wanderingQueue.actionJobMovement(globalClock.whatTimeIsIt());
             globalClock.tick();
         }
+        stats.calculate(completedQueue);
     }
 
 
@@ -42,15 +44,12 @@ public class TimeSimulation {
     private Attraction[] initializeAttractions(){
         Scanner k;
         try {
-            k = new Scanner(new File("/Users/gcapr/intelliJ Files/CMIS202/AmusementParkSimulation/src/main/java/org/example/Simulation/AttractionInformation.txt")).useDelimiter("\n");
+            k = new Scanner(new File("src/main/java/org/example/Simulation/AttractionInformation.txt")).useDelimiter("\n");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         k.next();
-        //System.out.println(k.next())
         Attraction[] output = new Attraction[Integer.parseInt(k.next().replace("\r",""))];
-        //Attraction[] output = new Attraction[5];
-        //k.next();
         int arrayIndex = 0;
         while(k.hasNext()){
             String[] tempArray = k.next().split(",");
